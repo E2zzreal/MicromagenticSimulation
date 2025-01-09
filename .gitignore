@@ -1,0 +1,13 @@
+# Python compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyc
+
+# Logs and databases
+logs/
+*.log
+
+# Results
+results/
