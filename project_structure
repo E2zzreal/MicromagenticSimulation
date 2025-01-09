@@ -1,0 +1,14 @@
+NdFeB_micromagnetics/
+├── README.md
+├── config/
+│   └── parameters.yaml
+├── src/
+│   ├── __init__.py
+│   ├── main.py
+│   ├── microstructure.py
+│   ├── material_properties.py
+│   └── simulation.py
+├── logs/
+│   └── simulation.log
+└── results/
+    └── .gitkeep 
