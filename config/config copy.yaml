@@ -1,0 +1,58 @@
+# 空间参数
+size:
+  - 500  # x方向尺寸，单位：nm
+  - 500  # y方向尺寸，单位：nm
+
+# 晶粒参数
+grain_size: 50.0     # 平均晶粒直径，单位：nm
+boundary_thickness: 5.0  # 晶界厚度，单位：nm
+
+# 网格参数
+mesh_size:
+  - 250  # x方向网格数（网格大小2nm）
+  - 250  # y方向网格数
+
+# 时间参数
+time:
+  total: 1.0e-9     # 总模拟时间，单位：s (1ns)
+  dt_thermal: 1e-15  # 热场计算时间步长，单位：s (1fs)
+  dt_field: 1e-14   # 场计算时间步长，单位：s (10fs)
+  output_interval: 1e-12  # 输出间隔，单位：s (1ps)
+
+# 材料参数
+materials:
+  Nd2Fe14B:
+    saturation_magnetization: 1.61e6  # 使用科学计数法
+    exchange_constant: 7.7e-12
+    anisotropy_constant: 4.3e6
+    damping_constant: 0.02
+  NdFe2:
+    saturation_magnetization: 1.28e6
+    exchange_constant: 1.5e-11
+    anisotropy_constant: 0.0
+    damping_constant: 0.1
+
+# 温度相关参数
+temperature:
+  enabled: False
+  T: 300.0  # 温度，单位K
+  kB: 1.380649e-23  # 玻尔兹曼常数
+  dt: 1e-15  # 时间步长，单位：s (0.1ps)
+  seed: 42  # 随机数种子 
+
+# 磁滞回线参数
+hysteresis:
+  H_max: 8.0e6      # 最大外加场，单位：A/m (约 10 T)
+  n_points: 200     # 采样点数
+  direction: [1,0,0] # 外加场方向
+  steady_tolerance: 1e-6  # 稳态判据 
+
+# 可视化参数
+visualization:
+  magnetization:
+    quiver_step: 10     # 矢量场箭头间隔
+    animation_fps: 20   # 动画帧率
+    dpi: 300           # 图像分辨率
+    colormap:
+      magnitude: 'viridis'  # 磁化强度大小的颜色图
+      components: 'RdBu'    # 分量的颜色图 

@@ -1,0 +1,59 @@
+# 空间参数
+size:
+  - 500  # x方向尺寸，单位：nm
+  - 500  # y方向尺寸，单位：nm
+
+# 晶粒参数
+grain_size: 50.0     # 平均晶粒直径，单位：nm
+boundary_thickness: 5.0  # 晶界厚度，单位：nm
+
+# 网格参数（减小网格数）
+mesh_size:
+  - 100  # x方向网格数（网格大小5nm）
+  - 100  # y方向网格数
+
+# 时间参数（使用较大的时间步长）
+time:
+  total: 5.0e-9     # 增加到5ns
+  dt_thermal: 1e-14  # 热场计算时间步长
+  dt_field: 1e-13   # 保持不变
+  output_interval: 5e-12
+  steady_tolerance: 1e-3  # 放宽稳态判据
+
+# 材料参数（调整为更合理的值）
+materials:
+  Nd2Fe14B:
+    saturation_magnetization: 1.61e6  # 1.61 T
+    exchange_constant: 7.7e-12       # 7.7 pJ/m
+    anisotropy_constant: 4.3e6       # 4.3 MJ/m³
+    damping_constant: 0.8           # 进一步增大阻尼
+  NdFe2:
+    saturation_magnetization: 1.28e6
+    exchange_constant: 1.5e-11
+    anisotropy_constant: 0.0
+    damping_constant: 0.1
+
+# 温度相关参数
+temperature:
+  enabled: false
+  T: 300.0
+  kB: 1.380649e-23
+  dt: 1e-14  # 增大时间步长
+  seed: 42
+
+# 磁滞回线参数（减少采样点）
+hysteresis:
+  H_max: 8.0e6      # 最大外加场
+  n_points: 100     # 减少采样点数
+  direction: [1,0,0]
+  steady_tolerance: 1e-5  # 放宽稳态判据
+
+# 可视化参数
+visualization:
+  magnetization:
+    quiver_step: 5      # 调整箭头间隔以适应新的网格
+    animation_fps: 20
+    dpi: 300
+    colormap:
+      magnitude: 'viridis'
+      components: 'RdBu' 

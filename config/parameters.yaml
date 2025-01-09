@@ -1,0 +1,26 @@
+# 材料参数
+materials:
+  Nd2Fe14B:  # 主相参数
+    Ms: 1.61e6  # 饱和磁化强度 (A/m)
+    K1: 4.3e6   # 磁晶各向异性常数 (J/m³)
+    A: 7.7e-12  # 交换刚度常数 (J/m)
+    alpha: 0.02 # 阻尼系数
+    
+  NdFe2:  # 晶界相参数
+    Ms: 0.8e6
+    K1: 1.0e5
+    A: 1.0e-12
+    alpha: 0.05
+
+# 微观结构参数
+microstructure:
+  grain_size: 3.0e-6  # 平均晶粒尺寸 (m)
+  boundary_thickness: 10.0e-9  # 晶界厚度 (m)
+  simulation_size: [10e-6, 10e-6]  # 模拟区域大小 (m)
+  mesh_size: [100, 100]  # 网格划分 
+
+simulation:
+  external_field: [0.0, 0.0, 1.0e6]  # 外加场 (A/m)
+  time_steps: 1000  # 时间步数
+  total_time: 1.0e-9  # 总模拟时间 (s)
+  convergence_criterion: 1.0e-6  # 收敛判据 
